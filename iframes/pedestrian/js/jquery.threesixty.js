@@ -68,12 +68,12 @@ var scope,
 
             val = Math.abs(val);
 
-            $this.find('.threesixty-frame').css({display: 'none'});
-            $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
 
+            $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            canvas();
 
-              canvas();
+         
 
 
 
@@ -97,10 +97,9 @@ var scope,
 
             val = Math.abs(val);
 
-            $this.find('.threesixty-frame').css({display: 'none'});
-            $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-     
-
+         $this.find('.threesixty-frame').css({visibility: 'hidden'});
+         $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+         canvas();
 
 
 
@@ -175,16 +174,14 @@ $this.html('');
 $this.removeClass('preloading');
 // add 360 images
 for(i; i < l; i++){
-var display = (i === 0) ? 'block' : 'none';
+var display = (i === 0) ? 'visible' : 'hidden';
 
 var  prefijo = ''+i;////PREFIJO DE FRAME
 var indice =prefijo;
 
-
-
-var none = 'none';
+var none = 'hidden';
 extencion=".png"
-html += '<img class="threesixty-frame renders" style="display:' +display + ';" data-index="' + i + '"  id="' + i + '" src="'+pathTemplate.replace( '{index}', indice)+ '"/>';
+html += '<img class="threesixty-frame renders" style="visibility:' +display + ';" data-index="' + i + '"  id="' + i + '" src="'+pathTemplate.replace( '{index}', indice)+ '"/>';
 
 }
         $this.html(html);
@@ -310,10 +307,8 @@ html += '<img class="threesixty-frame renders" style="display:' +display + ';" d
 
 
 
-            $downElem.find('.threesixty-frame').css({display: 'none'});
-            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-/////////////////////////////////////////////////////////////////////////////////////////
-
+            $downElem.find('.threesixty-frame').css({visibility: 'hidden'});
+            $downElem.find('.threesixty-frame:eq(' + val + ')').css({visibility: 'visible'});
 
 
 
@@ -378,33 +373,7 @@ function rgbToHex(r, g, b) {
 
 var hex =rgbToHex(r, g, b);
 
-if (hex==="#6f9c9f") {
 
-var id = img.alt; 
-var url="highlights_blue_";
-var highlights_blue = document.getElementById(url+id);
-highlights_blue.style.display = "block";
-$(document).click(function(e){
-     e.preventDefault();
- $('#Modal_azul').modal();
- 
-    // si lo deseamos podemos eliminar el evento click
-    // una vez utilizado por primera vez
-    $(document).unbind("click");
-    e.stopImmediatePropagation()
-})
-
-
-}
-else {
-
-var x = null;
-var id = img.alt; 
-var url="highlights_blue_";
-var highlights_blue = document.getElementById(url+id);
-highlights_blue.style.display = "none";
-
-}
 }
 
 
