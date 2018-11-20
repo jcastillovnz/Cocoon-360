@@ -31,9 +31,10 @@ $( window ).on( "load", function() {
     if(values)
     {
 //recogemos los valores que nos envia la URL en variables para trabajar con ellas
+
+
 level1 = values['level1'];
 level2 = values['level2'];
-
 document.getElementById("plan-technique").style.backgroundImage = "url("+level1+"2D.png)";
 document.getElementById("plan-axo").style.backgroundImage = "url("+level1+"3D.png)";
                              
