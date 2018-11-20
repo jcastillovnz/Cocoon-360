@@ -55,7 +55,6 @@ var scope,
 
     };
     $.fn.nextFrame = ThreeSixty.prototype.nextFrame = function(){
-canvas();
 
         $(this).each(function(i){
             var $this = $(this),
@@ -69,13 +68,16 @@ canvas();
             if(val > 0) val = thisTotal - val;
             val = Math.abs(val);
 
-            $this.find('.threesixty-frame').css({display: 'none'});
-            $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
-            $this.find('.masks').css({display: 'none'}).attr("id","false")  ;;
-            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-////////////////////////////////////////////////////////////////////////////////////////////
-            $this.find('.highlights').css({display: 'none'});
+
+
+            $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            $this.find('.masks').css({visibility: 'hidden'}).attr("id","false");
+            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).css({ visibility: 'visible'}).attr("id","true");
+            $this.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
+
+
 
 
               
@@ -88,7 +90,7 @@ canvas();
 
     $.fn.prevFrame = ThreeSixty.prototype.prevFrame = function(){
 
-     canvas();
+    
      $(this).each(function(i){
             var $this = $(this),
             val = $this.data('lastVal') || 0,
@@ -99,13 +101,15 @@ canvas();
             else if(val <= -thisTotal) val = val % (thisTotal - 1);
             if(val > 0) val = thisTotal - val;
             val = Math.abs(val);
-            $this.find('.threesixty-frame').css({display: 'none'});
-            $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
-            $this.find('.masks').css({display: 'none'}).attr("id","false")  ;;
-            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-////////////////////////////////////////////////////////////////////////////////////////////
-            $this.find('.highlights').css({display: 'none'});
+  
+            $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            $this.find('.masks').css({visibility: 'hidden'}).attr("id","false");
+            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).css({ visibility: 'visible'}).attr("id","true");
+            $this.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
+
+
 
         });
     };
@@ -170,8 +174,9 @@ $this.html('');
 $this.removeClass('preloading');
 // add 360 images
 for(i; i < l; i++){
-var display = (i === 0) ? 'block' : 'none';
-var none = 'none'
+var display = (i === 0) ? 'visible' : 'hidden';
+var none = 'hidden'
+
 path_masks="https://raw.githubusercontent.com/jcastillovnz/Orbital-3D/master/iframes/r1/img/r1/masks/"
 path_highlights_A101="img/r1/highlights/A101/"
 path_highlights_A102="img/r1/highlights/A102/"
@@ -187,20 +192,20 @@ path_highlights_B103="img/r1/highlights/B103/"
 
 
 extencion=".png"
-html += '<img class="threesixty-frame renders" style="display:' +display + ';" data-index="' + i + '"  id="' + i + '" src="' + pathTemplate.replace('{index}', i) + '"/>';
+html += '<img class="threesixty-frame renders" style="visibility:' +display + ';" data-index="' + i + '"  id="' + i + '" src="' + pathTemplate.replace('{index}', i) + '"/>';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-html += '<img class="masks center" alt="'+i+'" crossOrigin = "Anonymous"  style="display:' + display + ';" id="true"     data-index="' + i + '"   src="' + path_masks+''+i+extencion+'"/>';
+html += '<img class="masks center" alt="'+i+'" crossOrigin = "Anonymous"  style="visibility:' + display + ';" id="true"     data-index="' + i + '"   src="' + path_masks+''+i+extencion+'"/>';
 
 
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_A101_' + i + '" src="' + path_highlights_A101+''+i+extencion+'"/>';
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_A102_' + i + '" src="' + path_highlights_A102+''+i+extencion+'"/>';
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_A103_' + i + '" src="' + path_highlights_A103+''+i+extencion+'"/>';
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_A104_' + i + '" src="' + path_highlights_A104+''+i+extencion+'"/>';
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_A105_' + i + '" src="' + path_highlights_A105+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_A101_' + i + '" src="' + path_highlights_A101+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_A102_' + i + '" src="' + path_highlights_A102+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_A103_' + i + '" src="' + path_highlights_A103+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_A104_' + i + '" src="' + path_highlights_A104+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_A105_' + i + '" src="' + path_highlights_A105+''+i+extencion+'"/>';
 
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_B101_' + i + '" src="' + path_highlights_B101+''+i+extencion+'"/>';
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_B102_' + i + '" src="' + path_highlights_B102+''+i+extencion+'"/>';
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_B103_' + i + '" src="' + path_highlights_B103+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_B101_' + i + '" src="' + path_highlights_B101+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_B102_' + i + '" src="' + path_highlights_B102+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_B103_' + i + '" src="' + path_highlights_B103+''+i+extencion+'"/>';
 
 
         }
@@ -325,14 +330,11 @@ html += '<img class="highlights center"     style="display:' + none + ';" data-i
             if(val > 0) val = thisTotal - val;
             val = Math.abs(val);
 
-            $downElem.find('.threesixty-frame').css({display: 'none'});
-            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-///////////////////////////////desactivar mascara/////////////////////////////////////////////////////
-            $downElem.find('.masks').css({display: 'none'}).attr("id","false")  ;
-            $downElem.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-///////////////////////////////////////////////////////////////////////////////////////////////
-            $downElem.find('.highlights').css({display: 'none'});
-
+            $downElem.find('.threesixty-frame').css({visibility: 'hidden'});
+            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'}).css({visibility: 'visible'});
+            $downElem.find('.masks').css({visibility: 'hidden'}).attr("id","false")  ;
+            $downElem.find('.masks:eq(' + val + ')').css({display: 'block'}).css({visibility: 'visible'}).attr("id","true");
+            $downElem.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
             canvas();
 
 
@@ -413,10 +415,10 @@ if (hex==="#6e9c9f") {
 ///A-101
 var id = img.alt; 
 var url="highlights_A101_";
-var highlights_B101= document.getElementById(url+id);
+var highlights_A101= document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-101'); 
- highlights_B101.style.display = "block";
-
+highlights_A101.style.visibility = "visible";
+highlights_A101.style.display = "block";
 $(document).click(function(e){
 e.preventDefault();
 var loc = window.location;
@@ -439,11 +441,11 @@ else
 var id = img.alt; 
 var url="highlights_A101_";
 var highlights_A101= document.getElementById(url+id);
+highlights_A101.style.visibility = "hidden";
 highlights_A101.style.display = "none";
 
+
 }
-
-
 
 
 if (hex==="#ed8e8f") {
@@ -453,6 +455,7 @@ var id = img.alt;
 var url="highlights_A102_";
 var highlights_A102= document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-102'); 
+highlights_A102.style.visibility = "visible";
 highlights_A102.style.display = "block";
 $(document).click(function(e){
 e.preventDefault();
@@ -479,6 +482,7 @@ else
 var id = img.alt; 
 var url="highlights_A102_";
 var highlights_A102 = document.getElementById(url+id);
+highlights_A102.style.visibility = "hidden";
 highlights_A102.style.display = "none";
 
 }
@@ -491,8 +495,8 @@ var id = img.alt;
 var url="highlights_A103_";
 var highlights_A103 = document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-103'); 
+highlights_A103.style.visibility = "visible";
 highlights_A103.style.display = "block";
-
 $(document).click(function(e){
 
 e.preventDefault();
@@ -516,7 +520,7 @@ else
 var id = img.alt; 
 var url="highlights_A103_";
 var highlights_A103 = document.getElementById(url+id);
-highlights_A103.style.display = "none";
+highlights_A103.style.visibility = "hidden";
 
 }
 
@@ -528,6 +532,7 @@ var id = img.alt;
 var url="highlights_A104_";
 var highlights_A104 = document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-104'); 
+highlights_A104.style.visibility = "visible";
 highlights_A104.style.display = "block";
 
 
@@ -554,6 +559,7 @@ else
 var id = img.alt; 
 var url="highlights_A104_";
 var highlights_A104= document.getElementById(url+id);
+highlights_A104.style.visibility = "hidden";
 highlights_A104.style.display = "none";
 
 }
@@ -565,6 +571,7 @@ var id = img.alt;
 var url="highlights_A105_";
 var highlights_A105= document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-105'); 
+highlights_A105.style.visibility = "visible";
 highlights_A105.style.display = "block";
 
 $(document).click(function(e){
@@ -591,6 +598,7 @@ else
 var id = img.alt; 
 var url="highlights_A105_";
 var highlights_A105= document.getElementById(url+id);
+highlights_A105.style.visibility = "hidden";
 highlights_A105.style.display = "none";
 
 }
@@ -598,14 +606,16 @@ highlights_A105.style.display = "none";
 
 
 if (hex==="#b9c3cc") {
+
+
 $(document).unbind("click");
 ///B-101
 var id = img.alt; 
 var url="highlights_B101_";
 var highlights_B101= document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'B-101'); 
- highlights_B101.style.display = "block";
-
+highlights_B101.style.visibility = "visible";
+highlights_B101.style.display = "block";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -629,6 +639,7 @@ else
 var id = img.alt; 
 var url="highlights_B101_";
 var highlights_B101 = document.getElementById(url+id);
+highlights_B101.style.visibility = "hidden";
 highlights_B101.style.display = "none";
 
 
@@ -643,7 +654,9 @@ var id = img.alt;
 var url="highlights_B102_";
 var highlights_B102= document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'B-102'); 
- highlights_B102.style.display = "block";
+ highlights_B102.style.visibility = "visible";
+highlights_B102.style.display = "block";
+
 
 $(document).click(function(e){
 e.preventDefault();
@@ -669,6 +682,7 @@ else
 var id = img.alt; 
 var url="highlights_B102_";
 var highlights_B102= document.getElementById(url+id);
+highlights_B102.style.visibility = "hidden";
 highlights_B102.style.display = "none";
 
 }
@@ -681,6 +695,7 @@ var id = img.alt;
 var url="highlights_B103_";
 var highlights_B103= document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'B-103'); 
+ highlights_B103.style.visibility = "visible";
  highlights_B103.style.display = "block";
 
 $(document).click(function(e){
@@ -707,6 +722,7 @@ else
 var id = img.alt; 
 var url="highlights_B103_";
 var highlights_B103= document.getElementById(url+id);
+highlights_B103.style.visibility = "hidden";
 highlights_B103.style.display = "none";
 
 }

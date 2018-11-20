@@ -6,6 +6,8 @@ overflow:hidden;
 
 
 
+
+
 .center{
 position: relative;
 left: 50%;
@@ -25,7 +27,7 @@ z-index: 0;
 .threesixty-frame  {
 width:auto;
 height: 95%;
-display:block;
+visibility: visible;
  z-index: 0;
  position: absolute;
 }
@@ -33,7 +35,7 @@ display:block;
 .highlights{
 width:auto;
 height: 95%;
-display:block;
+visibility: visible;
 position: absolute;
 z-index: 2;
 display: none;
@@ -41,7 +43,7 @@ display: none;
 .masks{
 width:auto;
 height: 95%;
-display:block;
+visibility: visible;
 position: absolute;
  z-index: 3;
 -o-mix-blend-mode: multiply;
