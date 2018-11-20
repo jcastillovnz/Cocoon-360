@@ -21,16 +21,16 @@ button:hover{
 
 
 			        .side-bar-content:hover > #control-open{
-				     background-image: url(../img/Arche/pictogram/pictogram-open-hover.png)			
+				     background-image: url(../img/buttons/pictogram-open-hover.png)			
 			         }
 
 
 						#control-back{
-								background-image: url(../img/Arche/pictogram/pictogram-exit.png)
+								background-image: url(../img/buttons/pictogram-open.png)
 							}
 
 							#control-open{
-								background-image: url(../img/buttons/pictogram/pictogram-open.png)
+								background-image: url(../img/buttons/pictogram-open.png)
 							}
 
 
@@ -52,12 +52,12 @@ button:hover{
 							}
 
 							#plan-technique{
-								background-image: url(../img/r5/plans/A502/2D.png);
+								background-image: url();
 							}
 
 							#plan-axo{
-								background-size:80%;
-								background-image: url(../img/r5/plans/A502/3D.png);
+								background-size:65%;
+								background-image: url();
 							}
 
 
