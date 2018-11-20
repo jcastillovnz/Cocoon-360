@@ -92,14 +92,14 @@ $( document ).ready(function() {
         $('#one').on('click', function(){
             $('.level-axo.active').removeClass('active');
             $(this).addClass('active');
-            document.getElementById("plan-axo").style.backgroundImage = "url("+level1 +"3D.PNG)";
+            document.getElementById("plan-axo").style.backgroundImage = "url("+level1 +"3D.png)";
         });
 
         $('#two').on('click', function(){
 
             $('.level-axo.active').removeClass('active');
             $(this).addClass('active');
-            document.getElementById("plan-axo").style.backgroundImage = "url("+level2 +"3D.PNG)";
+            document.getElementById("plan-axo").style.backgroundImage = "url("+level2 +"3D.png)";
         });
 
         $('#one-tech').on('click', function(){
@@ -107,7 +107,7 @@ $( document ).ready(function() {
  
             $('.level-tech.active').removeClass('active');
             $(this).addClass('active');
-         document.getElementById("plan-technique").style.backgroundImage = "url("+level1 +"2D.PNG)";
+         document.getElementById("plan-technique").style.backgroundImage = "url("+level1 +"2D.png)";
 
         });
 
@@ -115,7 +115,7 @@ $( document ).ready(function() {
 
             $('.level-tech.active').removeClass('active');
             $(this).addClass('active');
-          document.getElementById("plan-technique").style.backgroundImage = "url("+level2 +"2D.PNG)";
+          document.getElementById("plan-technique").style.backgroundImage = "url("+level2 +"2D.png)";
         });
 
 
