@@ -1,7 +1,7 @@
 function getUrl()
 {
     // capturamos la url
-    var loc = location.href;
+    var loc = window.location.href;
     // si existe el interrogante
     if(loc.indexOf('?')>0)
     {// cogemos la parte de la url que hay despues del interrogante
