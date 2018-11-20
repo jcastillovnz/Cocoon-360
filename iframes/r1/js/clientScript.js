@@ -2,6 +2,8 @@ function getUrl()
 {
     // capturamos la url
     var loc = window.location.href;
+
+
     // si existe el interrogante
     if(loc.indexOf('?')>0)
     {// cogemos la parte de la url que hay despues del interrogante
@@ -32,8 +34,8 @@ $( window ).on( "load", function() {
 level1 = values['level1'];
 level2 = values['level2'];
 
-document.getElementById("plan-technique").style.backgroundImage = "url("+level1 +"2D.PNG)";
-document.getElementById("plan-axo").style.backgroundImage = "url("+level1 +"3D.PNG)";
+document.getElementById("plan-technique").style.backgroundImage = "url(.."+level1 +"2D.PNG)";
+document.getElementById("plan-axo").style.backgroundImage = "url(.."+level1 +"3D.PNG)";
 
  if (level2==0){
     
