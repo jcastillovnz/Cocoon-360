@@ -312,23 +312,12 @@ html += '<img class="highlights center"     style="visibility:' + none + ';" dat
 
 
 
-            $downElem.find('.threesixty-frame').css({display: 'none'});
-            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-/////////////////////////////////////////////////////////////////////////////////////////
-            $downElem.find('.mascaras').css({display: 'none'});
-///////////////////////////////desactivar mascara/////////////////////////////////////////////////////
-            $downElem.find('.masks').css({display: 'none'}).attr("id","false")  ;
-            $downElem.find('.masks:eq(' + val + ')').css({display: 'block'});
-///////////////////////////////activar mascara/////////////////////////////////////////////////////
-            $downElem.find('.masks:eq(' + val + ')').attr("id","true")
-///////////////////////////////////////////////////////////////////////////////////////////////
-            $downElem.find('.highlights').css({display: 'none'});
-///////////////////////////////////////////////////////////////////////////////////////////////
-            $downElem.find('.highlights').css({display: 'none'});
-
-
-    canvas();
-
+            $downElem.find('.threesixty-frame').css({visibility: 'hidden'});
+            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'}).css({visibility: 'visible'});
+            $downElem.find('.masks').css({visibility: 'hidden'}).attr("id","false")  ;
+            $downElem.find('.masks:eq(' + val + ')').css({display: 'block'}).css({visibility: 'visible'}).attr("id","true");
+            $downElem.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
 
 
         }
@@ -409,7 +398,7 @@ var url="highlights_A001_";
 var highlights_A001 = document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-001'); 
 highlights_A001.style.display = "block";
-
+highlights_A001.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -431,7 +420,7 @@ else
 var id = img.alt; 
 var url="highlights_A001_";
 var highlights_A001= document.getElementById(url+id);
-highlights_A001.style.display = "none";
+highlights_A001.style.visibility = "hidden";
 
 }
 
@@ -452,6 +441,7 @@ var highlights_A002= document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-002'); 
 
 highlights_A002.style.display = "block";
+highlights_A002.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -475,7 +465,7 @@ var id = img.alt;
 var url="highlights_A002_";
 var highlights_A002 = document.getElementById(url+id);
 highlights_A002.style.display = "none";
-
+highlights_A002.style.visibility = "hidden";
 }
 
 
@@ -489,7 +479,7 @@ var highlights_A003 = document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-003'); 
 
 highlights_A003.style.display = "block";
-
+highlights_A003.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -513,6 +503,7 @@ var id = img.alt;
 var url="highlights_A003_";
 var highlights_A003 = document.getElementById(url+id);
 highlights_A003.style.display = "none";
+highlights_A003.style.visibility = "hidden";
 
 }
 
@@ -534,6 +525,7 @@ var highlights_A004 = document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-004'); 
 
 highlights_A004.style.display = "block";
+highlights_A004.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -557,6 +549,7 @@ var id = img.alt;
 var url="highlights_A004_";
 var highlights_A004= document.getElementById(url+id);
 highlights_A004.style.display = "none";
+highlights_A004.style.visibility = "hidden";
 
 }
 
@@ -572,6 +565,7 @@ var highlights_A005= document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-005'); 
 
 highlights_A005.style.display = "block";
+highlights_A005.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -594,6 +588,7 @@ var id = img.alt;
 var url="highlights_A005_";
 var highlights_A005= document.getElementById(url+id);
 highlights_A005.style.display = "none";
+highlights_A005.style.visibility = "hidden";
 
 
 
