@@ -35,9 +35,9 @@ level1 = values['level1'];
 level2 = values['level2'];
 
 
-document.getElementById("plan-technique").style.backgroundImage = "url(../"+level1+"2D.png)";
-document.getElementById("plan-axo").style.backgroundImage = "url(../"+level1+"3D.png)";
-alert(t  )                                
+document.getElementById("plan-technique").style.backgroundImage = "url("+level1+"2D.png)";
+document.getElementById("plan-axo").style.backgroundImage = "url("+level1+"3D.png)";
+                             
  if (level2==0){        
     
  document.getElementById("two-tech").style.display = "none";
