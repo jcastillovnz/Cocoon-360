@@ -68,14 +68,13 @@ var scope,
 
             val = Math.abs(val);
 
-     $this.find('.threesixty-frame').css({display: 'none'});
-              $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.masks').css({display: 'none'}).attr("id","false");
-              $this.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.highlights').css({display: 'none'});
-               canvas();
+            $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            $this.find('.masks').css({visibility: 'hidden'}).attr("id","false");
+            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).css({ visibility: 'visible'}).attr("id","true");
+            $this.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
+
 
 
 
@@ -97,14 +96,13 @@ var scope,
             if(val > 0) val = thisTotal - val;
 
             val = Math.abs(val);
-        $this.find('.threesixty-frame').css({display: 'none'});
-              $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.masks').css({display: 'none'}).attr("id","false");
-              $this.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.highlights').css({display: 'none'});
-               canvas();
+            $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            $this.find('.masks').css({visibility: 'hidden'}).attr("id","false");
+            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).css({ visibility: 'visible'}).attr("id","true");
+            $this.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
+
 
         });
     };
@@ -171,21 +169,19 @@ $this.html('');
 $this.removeClass('preloading');
 // add 360 images
 for(i; i < l; i++){
-var display = (i === 0) ? 'block' : 'none';
-var none = 'none'
-
-
+var display = (i === 0) ? 'visible' : 'hidden';
+var none = 'hidden'
 
 path_masks="https://raw.githubusercontent.com/jcastillovnz/Orbital-3D/master/iframes/r5/img/r5/masks/"
-path_highlights_blue="img/r5/highlights/A501/"
-path_highlights_red="img/r5/highlights/A502/"
+path_highlights_A501="img/r5/highlights/A501/"
+path_highlights_A502="img/r5/highlights/A502/"
 extencion=".png"
-html += '<img class="threesixty-frame renders" style="display:' +display + ';" data-index="' + i + '"  id="' + i + '" src="' + pathTemplate.replace('{index}', i) + '"/>';
+html += '<img class="threesixty-frame renders" style="visibility:' +display + ';" data-index="' + i + '"  id="' + i + '" src="' + pathTemplate.replace('{index}', i) + '"/>';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-html += '<img class="masks center" alt="'+i+'" crossOrigin = "Anonymous"  style="display:' + display + ';" id="true"     data-index="' + i + '"   src="' + path_masks+''+i+extencion+'"/>';
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_A501_' + i + '" src="' + path_highlights_blue+''+i+extencion+'"/>';
-html += '<img class="highlights center"   style="display:' + none+ ';" data-index="' + i + '"  id="highlights_A502_' + i + '" src="' + path_highlights_red+''+i+extencion+'"/>';
+html += '<img class="masks center" alt="'+i+'" crossOrigin = "Anonymous"  style="visibility:' + display + ';" id="true"     data-index="' + i + '"   src="' + path_masks+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_A501_' + i + '" src="' + path_highlights_A501+''+i+extencion+'"/>';
+html += '<img class="highlights center"   style="visibility:' + none+ ';" data-index="' + i + '"  id="highlights_A502_' + i + '" src="' + path_highlights_A502+''+i+extencion+'"/>';
 
         }
         $this.html(html);
@@ -230,8 +226,6 @@ html += '<img class="highlights center"   style="display:' + none+ ';" data-inde
             lastY = $downElem.data('lastY') || 0;
             isMouseDown = true;
             $downElem.trigger('down');
-
-
 
 
         });
@@ -311,18 +305,12 @@ html += '<img class="highlights center"   style="display:' + none+ ';" data-inde
 
 
 
-            $downElem.find('.threesixty-frame').css({display: 'none'});
-            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-/////////////////////////////////////////////////////////////////////////////////////////
-            $downElem.find('.masks').css({display: 'none'});
-///////////////////////////////desactivar mascara/////////////////////////////////////////////////////
-            $downElem.find('.masks').css({display: 'none'}).attr("id","false")  ;
-            $downElem.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-///////////////////////////////activar mascara/////////////////////////////////////////////////////
-            $downElem.find('.highlights').css({display: 'none'});
-///////////////////////////////////////////////////////////////////////////////////////////////
-             canvas();
-
+            $downElem.find('.threesixty-frame').css({visibility: 'hidden'});
+            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'}).css({visibility: 'visible'});
+            $downElem.find('.masks').css({visibility: 'hidden'}).attr("id","false")  ;
+            $downElem.find('.masks:eq(' + val + ')').css({display: 'block'}).css({visibility: 'visible'}).attr("id","true");
+            $downElem.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
 
 
         }
@@ -412,7 +400,7 @@ var highlights_A502 = document.getElementById(url+id);
 
 document.getElementById("true").setAttribute('title', 'A-502'); 
 highlights_A502.style.display = "block";
-
+highlights_A502.style.visibility = "visible";
 
 $(document).click(function(e){
      e.preventDefault();
@@ -440,6 +428,7 @@ var id = img.alt;
 var url="highlights_A502_";
 var highlights_A502 = document.getElementById(url+id);
 highlights_A502.style.display = "none";
+highlights_A502.style.visibility = "hidden";
 
 
 }
@@ -452,8 +441,8 @@ var id = img.alt;
 var url="highlights_A501_";
 var highlights_A501 = document.getElementById(url+id);
 highlights_A501.style.display = "block";
+highlights_A501.style.visibility = "visible";
 document.getElementById("true").setAttribute('title', 'A-501'); 
-
 $(document).click(function(e){
      e.preventDefault();
 
@@ -481,7 +470,7 @@ var id = img.alt;
 var url="highlights_A501_";
 var highlights_A501 = document.getElementById(url+id);
 highlights_A501.style.display = "none";
-
+highlights_A501.style.visibility = "hidden";
 
 }
 }

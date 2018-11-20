@@ -67,14 +67,13 @@ var scope,
             if(val > 0) val = thisTotal - val;
 
             val = Math.abs(val);
-    $this.find('.threesixty-frame').css({display: 'none'});
-              $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.masks').css({display: 'none'}).attr("id","false");
-              $this.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.highlights').css({display: 'none'});
-               canvas();
+            $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            $this.find('.masks').css({visibility: 'hidden'}).attr("id","false");
+            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).css({ visibility: 'visible'}).attr("id","true");
+            $this.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
+
         });
     };
 
@@ -93,14 +92,13 @@ var scope,
             if(val > 0) val = thisTotal - val;
 
             val = Math.abs(val);
-         $this.find('.threesixty-frame').css({display: 'none'});
-              $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.masks').css({display: 'none'}).attr("id","false");
-              $this.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.highlights').css({display: 'none'});
-               canvas();
+            $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            $this.find('.masks').css({visibility: 'hidden'}).attr("id","false");
+            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).css({ visibility: 'visible'}).attr("id","true");
+            $this.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
+
         });
     };
 

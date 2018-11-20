@@ -71,15 +71,12 @@ var scope,
             if(val > 0) val = thisTotal - val;
 
             val = Math.abs(val);
-             $this.find('.threesixty-frame').css({display: 'none'});
-              $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.masks').css({display: 'none'}).attr("id","false");
-              $this.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.highlights').css({display: 'none'});
-               canvas();
-
+            $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            $this.find('.masks').css({visibility: 'hidden'}).attr("id","false");
+            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).css({ visibility: 'visible'}).attr("id","true");
+            $this.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
 
 
 
@@ -101,15 +98,12 @@ var scope,
             if(val > 0) val = thisTotal - val;
 
             val = Math.abs(val);
-      $this.find('.threesixty-frame').css({display: 'none'});
-              $this.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.masks').css({display: 'none'}).attr("id","false");
-              $this.find('.masks:eq(' + val + ')').css({display: 'block'}).attr("id","true");
-////////////////////////////////////////////////////////////////////////////////////////////
-              $this.find('.highlights').css({display: 'none'});
-               canvas();
-
+           $this.find('.threesixty-frame').css({visibility: 'hidden'});
+            $this.find('.threesixty-frame:eq(' + val + ')').css({ visibility: 'visible'}).css({display: 'block'});
+            $this.find('.masks').css({visibility: 'hidden'}).attr("id","false");
+            $this.find('.masks:eq(' + val + ')').css({display: 'block'}).css({ visibility: 'visible'}).attr("id","true");
+            $this.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
 
 
 
@@ -178,8 +172,16 @@ $this.html('');
 $this.removeClass('preloading');
 // add 360 images
 for(i; i < l; i++){
-var display = (i === 0) ? 'block' : 'none';
-var none = 'none'
+var display = (i === 0) ? 'visible' : 'hidden';
+var none = 'hidden';
+
+
+
+
+
+
+
+
 path_masks="https://raw.githubusercontent.com/jcastillovnz/Orbital-3D/master/iframes/r4/img/r4/masks/"
 path_highlights_A401="img/r4/highlights/A401/"
 path_highlights_A402="img/r4/highlights/A402/"
@@ -189,16 +191,16 @@ path_highlights_B302="img/r4/highlights/B302/"
 
 
 extencion=".png"
-html += '<img class="threesixty-frame renders" style="display:' +display + ';" data-index="' + i + '"  id="' + i + '" src="' + pathTemplate.replace('{index}', i) + '"/>';
+
+
+html += '<img class="threesixty-frame renders" style="visibility:' +display+ ';" data-index="' + i + '"  id="' + i + '" src="' + pathTemplate.replace('{index}', i) + '"/>';
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-html += '<img class="masks center" alt="'+i+'" crossOrigin = "Anonymous"  style="display:' + display + ';" id="true"     data-index="' + i + '"   src="' + path_masks+''+i+extencion+'"/>';
-html += '<img class="highlights center"     style="display:' + none + ';" data-index="' + i + '"  id="highlights_A401_' + i + '" src="' + path_highlights_A401+''+i+extencion+'"/>';
-html += '<img class="highlights center"   style="display:' + none+ ';" data-index="' + i + '"  id="highlights_A402_' + i + '" src="' + path_highlights_A402+''+i+extencion+'"/>';
-html += '<img class="highlights center"   style="display:' + none+ ';" data-index="' + i + '"  id="highlights_A403_' + i + '" src="' + path_highlights_A403+''+i+extencion+'"/>';
-html += '<img class="highlights center"   style="display:' + none+ ';" data-index="' + i + '"  id="highlights_B301_' + i + '" src="' + path_highlights_B301+''+i+extencion+'"/>';
-html += '<img class="highlights center"   style="display:' + none+ ';" data-index="' + i + '"  id="highlights_B302_' + i + '" src="' + path_highlights_B302+''+i+extencion+'"/>';
-
-
+html += '<img class="masks center" alt="'+i+'" crossOrigin = "Anonymous"  style="visibility:' + display + ';" id="true"     data-index="' + i + '"   src="' + path_masks+''+i+extencion+'"/>';
+html += '<img class="highlights center"     style="visibility:' + none + ';" data-index="' + i + '"  id="highlights_A401_' + i + '" src="' + path_highlights_A401+''+i+extencion+'"/>';
+html += '<img class="highlights center"   style="visibility:' + none+ ';" data-index="' + i + '"  id="highlights_A402_' + i + '" src="' + path_highlights_A402+''+i+extencion+'"/>';
+html += '<img class="highlights center"   style="visibility:' + none+ ';" data-index="' + i + '"  id="highlights_A403_' + i + '" src="' + path_highlights_A403+''+i+extencion+'"/>';
+html += '<img class="highlights center"   style="visibility:' + none+ ';" data-index="' + i + '"  id="highlights_B301_' + i + '" src="' + path_highlights_B301+''+i+extencion+'"/>';
+html += '<img class="highlights center"   style="visibility:' + none+ ';" data-index="' + i + '"  id="highlights_B302_' + i + '" src="' + path_highlights_B302+''+i+extencion+'"/>';
 
 
         }
@@ -324,23 +326,13 @@ html += '<img class="highlights center"   style="display:' + none+ ';" data-inde
             val = Math.abs(val);
 
 
+    $downElem.find('.threesixty-frame').css({visibility: 'hidden'});
+            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'}).css({visibility: 'visible'});
+            $downElem.find('.masks').css({visibility: 'hidden'}).attr("id","false")  ;
+            $downElem.find('.masks:eq(' + val + ')').css({display: 'block'}).css({visibility: 'visible'}).attr("id","true");
+            $downElem.find('.highlights').css({display: 'none'}).css({visibility: 'hidden'});
+            canvas();
 
-            $downElem.find('.threesixty-frame').css({display: 'none'});
-            $downElem.find('.threesixty-frame:eq(' + val + ')').css({display: 'block'});
-/////////////////////////////////////////////////////////////////////////////////////////
-            $downElem.find('.mascaras').css({display: 'none'});
-///////////////////////////////desactivar mascara/////////////////////////////////////////////////////
-            $downElem.find('.masks').css({display: 'none'}).attr("id","false")  ;
-            $downElem.find('.masks:eq(' + val + ')').css({display: 'block'});
-///////////////////////////////activar mascara/////////////////////////////////////////////////////
-            $downElem.find('.masks:eq(' + val + ')').attr("id","true")
-///////////////////////////////////////////////////////////////////////////////////////////////
-            $downElem.find('.highlights').css({display: 'none'});
-///////////////////////////////////////////////////////////////////////////////////////////////
-            $downElem.find('.highlights').css({display: 'none'});
-
-
-    canvas();
 
 
 
@@ -430,7 +422,7 @@ var highlights_A401 = document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'A-401'); 
 
 highlights_A401.style.display = "block";
-
+highlights_A401.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -455,9 +447,7 @@ var id = img.alt;
 var url="highlights_A401_";
 var highlights_A401 = document.getElementById(url+id);
 highlights_A401.style.display = "none";
-
-
-
+highlights_A401.style.visibility = "hidden";
 }
 
 
@@ -474,7 +464,7 @@ document.getElementById("true").setAttribute('title', 'A-402');
 
 
 highlights_A402.style.display = "block";
-
+highlights_A402.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -499,6 +489,7 @@ var id = img.alt;
 var url="highlights_A402_";
 var highlights_A402 = document.getElementById(url+id);
 highlights_A402.style.display = "none";
+highlights_A402.style.visibility = "hidden";
 
 }
 
@@ -519,6 +510,7 @@ document.getElementById("true").setAttribute('title', 'A-403');
 
 
 highlights_A403.style.display = "block";
+highlights_A403.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -543,6 +535,7 @@ var id = img.alt;
 var url="highlights_A403_";
 var highlights_A403 = document.getElementById(url+id);
 highlights_A403.style.display = "none";
+highlights_A403.style.visibility = "hidden";
 
 }
 
@@ -563,7 +556,7 @@ var url="highlights_B301_";
 var highlights_B301 = document.getElementById(url+id);
 document.getElementById("true").setAttribute('title', 'B-301'); 
 highlights_B301.style.display = "block";
-
+highlights_B301.style.visibility = "visible";
 $(document).click(function(e){
 e.preventDefault();
 var loc = window.location;
@@ -590,6 +583,7 @@ var id = img.alt;
 var url="highlights_B301_";
 var highlights_B301 = document.getElementById(url+id);
 highlights_B301.style.display = "none";
+highlights_B301.style.visibility = "hidden";
 
 }
 
@@ -604,11 +598,9 @@ $(document).unbind("click");
 var id = img.alt; 
 var url="highlights_B302_";
 var highlights_B302 = document.getElementById(url+id);
-
-
-console.log(highlights_B302);
 document.getElementById("true").setAttribute('title', 'B-302'); 
 highlights_B302.style.display = "block";
+highlights_B302.style.visibility = "visible";
 
 $(document).click(function(e){
 e.preventDefault();
@@ -625,13 +617,7 @@ $(document).unbind("click");
 })
 
 
-
-
-
-
 }
-
-
 
 else
 {
@@ -639,6 +625,7 @@ var id = img.alt;
 var url="highlights_B302_";
 var highlights_B302 = document.getElementById(url+id);
 highlights_B302.style.display = "none";
+highlights_B302.style.visibility = "hidden";
 
 }
 
