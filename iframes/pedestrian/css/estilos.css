@@ -22,24 +22,24 @@ transform: translate(-50%, 0);
 z-index: 0;
   }
 .threesixty-frame  {
-width:65%;
-height: auto;
+width:auto;
+height: 95%;
 display:block;
  z-index: 0;
  position: absolute;
 }
 
 .highlights{
-width:65%;
-height: auto;
+width:auto;
+height: 95%;
 display:block;
 position: absolute;
 z-index: 2;
 display: none;
 }
 .masks{
-width:65%;
-height: auto;
+width:auto;
+height: 95%;
 display:block;
 position: absolute;
  z-index: 3;
